@@ -25,6 +25,18 @@
     <Filter Include="Header Files\core\map">
       <UniqueIdentifier>{3261c25a-b844-49b7-a030-04fb4db9703d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\core\networking">
+      <UniqueIdentifier>{52b627ab-309b-4ed9-95af-9dbe7b6b9500}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\networking\packets">
+      <UniqueIdentifier>{e14d8c81-3dde-4519-a92c-1480344fde72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\networking">
+      <UniqueIdentifier>{654e1ebc-f9d4-4b94-8544-bb08e3e8786a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\networking\packets">
+      <UniqueIdentifier>{89094eab-b885-4c5a-909f-5bbc665f6aaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="structs.h">
@@ -42,6 +54,21 @@
     <ClInclude Include="core\map\cell.h">
       <Filter>Header Files\core\map</Filter>
     </ClInclude>
+    <ClInclude Include="core\networking\packet.h">
+      <Filter>Header Files\core\networking</Filter>
+    </ClInclude>
+    <ClInclude Include="core\networking\packets\loginpacket.h">
+      <Filter>Header Files\core\networking\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="core\networking\packets\loginrequestpacket.h">
+      <Filter>Header Files\core\networking\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="core\networking\connectedclient.h">
+      <Filter>Header Files\core\networking</Filter>
+    </ClInclude>
+    <ClInclude Include="core\networking\gameserver.h">
+      <Filter>Header Files\core\networking</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -52,6 +79,21 @@
     </ClCompile>
     <ClCompile Include="core\map\cell.cpp">
       <Filter>Source Files\core\map</Filter>
+    </ClCompile>
+    <ClCompile Include="core\networking\packet.cpp">
+      <Filter>Source Files\core\networking</Filter>
+    </ClCompile>
+    <ClCompile Include="core\networking\packets\loginpacket.cpp">
+      <Filter>Source Files\core\networking\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="core\networking\packets\loginrequestpacket.cpp">
+      <Filter>Source Files\core\networking\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="core\networking\connectedclient.cpp">
+      <Filter>Source Files\core\networking</Filter>
+    </ClCompile>
+    <ClCompile Include="core\networking\gameserver.cpp">
+      <Filter>Source Files\core\networking</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -12,6 +12,7 @@
 
 #define GAME_WINDOW_TITLE "" // Title for the SDL instantiated Window
 
+#define MAX_CONNECTED_CLIENTS 1000
 
 // Entity types for Entity Class which can be a NPC or a Player.
 enum game_entity {

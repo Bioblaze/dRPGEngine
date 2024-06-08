@@ -124,6 +124,11 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug (Client)|x64'">
+    <PublicIncludeDirectories>
+    </PublicIncludeDirectories>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir);</IncludePath>
+  </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgEnableManifest>true</VcpkgEnableManifest>
   </PropertyGroup>
@@ -190,7 +195,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalOptions>/D RPG_CLIENT /D DEBUG_ENABLED %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -204,6 +210,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalOptions>/D DEBUG_ENABLED %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -219,6 +227,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalOptions>/D RPG_CLIENT %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -235,6 +245,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -246,6 +258,11 @@
   <ItemGroup>
     <ClInclude Include="core\map\cell.h" />
     <ClInclude Include="core\map\worldmap.h" />
+    <ClInclude Include="core\networking\connectedclient.h" />
+    <ClInclude Include="core\networking\gameserver.h" />
+    <ClInclude Include="core\networking\packet.h" />
+    <ClInclude Include="core\networking\packets\loginpacket.h" />
+    <ClInclude Include="core\networking\packets\loginrequestpacket.h" />
     <ClInclude Include="defs.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="structs.h" />
@@ -253,6 +270,11 @@
   <ItemGroup>
     <ClCompile Include="core\map\cell.cpp" />
     <ClCompile Include="core\map\worldmap.cpp" />
+    <ClCompile Include="core\networking\connectedclient.cpp" />
+    <ClCompile Include="core\networking\gameserver.cpp" />
+    <ClCompile Include="core\networking\packet.cpp" />
+    <ClCompile Include="core\networking\packets\loginpacket.cpp" />
+    <ClCompile Include="core\networking\packets\loginrequestpacket.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
