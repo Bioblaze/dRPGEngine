@@ -1,0 +1,83 @@
+name: Editor Build
+on:
+  push:
+    branches: [ 'master', 'main', 'prod', 'production' ]
+
+jobs:
+  windows:
+    name: windows build
+    runs-on: windows-latest
+    env:
+      BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+    
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore from cache and setup vcpkg executable and data files.
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgJsonGlob: 'vcpkg.json'
+
+      # New step to run SetupButler.ps1
+      - name: Setup Butler
+        run: .\Tools\Windows\SetupButler.ps1
+        shell: pwsh
+
+      - name: Install packages and dependencies
+        run: |
+          bootstrap-vcpkg
+          vcpkg integrate install
+
+      - name: Build app for release
+        run: msbuild DRPGEngine.sln -t:build -verbosity:diag /p:Configuration=Release /p:Platform=x64
+
+      - name: Push to Itch.io
+        run: |
+          D:\a\DRPGEngine\DRPGEngine\butler\butler.exe push D:\a\DRPGEngine\DRPGEngine\x64\Release\ bioblaze/DRPGEngine:windows-alpha
+  linux:
+    name: linux build
+    runs-on: ubuntu-latest
+    env:
+      BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: apt install basic deps
+        run: sudo apt install build-essential cmake g++ libxmu-dev libxi-dev libgl-dev 
+        shell: bash
+
+      - name: apt install glew deps
+        run: sudo apt install libxmu-dev libxi-dev libgl-dev 
+        shell: bash
+
+      - name: apt install glfw3 deps
+        run: sudo apt install libxinerama-dev libxcursor-dev xorg-dev libglu1-mesa-dev pkg-config
+        shell: bash
+
+      - name: is g++ installed?
+        run: g++ --version
+        shell: bash
+
+      - name: is make installed?
+        run: make --version
+        shell: bash
+
+      - name: Setup vckpg
+        run: cd vcpkg && ./bootstrap-vcpkg.sh
+        shell: bash
+
+      - name: installing dependencies
+        run: vcpkg integrate install
+        shell: bash
+
+      - name: Run Build.sh
+        run: chmod +x ./Build.sh && ./Build.sh
+        shell: bash

@@ -13,5 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{5511de7b-2b36-4ad7-8e27-7397182bf428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\map">
+      <UniqueIdentifier>{378b1031-8e4e-4081-844a-3b383588a61f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{7bff6c3c-cb61-4c5f-be0a-a1d2d606655f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\map">
+      <UniqueIdentifier>{3261c25a-b844-49b7-a030-04fb4db9703d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\map\worldmap.h">
+      <Filter>Header Files\core\map</Filter>
+    </ClInclude>
+    <ClInclude Include="core\map\cell.h">
+      <Filter>Header Files\core\map</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\map\worldmap.cpp">
+      <Filter>Source Files\core\map</Filter>
+    </ClCompile>
+    <ClCompile Include="core\map\cell.cpp">
+      <Filter>Source Files\core\map</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
